@@ -15,9 +15,11 @@
 
 .output_line_button {
     color: #75715e;
+    display: inline-block;
+    padding: 1px;
+    font-weight: bold;
     
     &:hover {
-        text-decoration: underline;
         cursor: pointer;
         background-color: #75715e;
         color: #272822;

@@ -7,9 +7,10 @@ import Routes from '~/routes';
 
 import websocket from '~/actions/websocket';
 import input_actions from '~/actions/input';
+import output_actions from '~/actions/output';
 
 import Output from '~/components/Output';
-import { FilterInput } from '~/components/Input';
+import { FilterInput, GoToBottom } from '~/components/Input';
 import { Bar, Spacer } from '~/components/Layout';
 
 import styles from './Terminal.css'
@@ -26,6 +27,8 @@ class Terminal extends Component {
     render() {
         const {
             output,
+            scroll_lock,
+            setScrollLock,
 
             filter,
             filterChanged
@@ -36,12 +39,17 @@ class Terminal extends Component {
                 id={ styles.terminal_wrap }>
                 <Bar>
                     <Spacer />
+                    <GoToBottom
+                        show={ !scroll_lock }
+                        onClick={ () => setScrollLock( true ) } />
                     <FilterInput
                         filter={ filter }
                         filterChanged={ filterChanged } />
                 </Bar>
                 <Output
-                    output={ output } />
+                    output={ output }
+                    scroll_lock={ scroll_lock }
+                    setScrollLock={ setScrollLock } />
             </div>
         );
     }
@@ -57,7 +65,8 @@ Terminal = connect(
 
         return {
             output: filterMessages( filter, state.output.messages ),
-            filter
+            filter,
+            scroll_lock: state.output.scroll_lock
         };
     },
     ( dispatch, props ) => {
@@ -67,6 +76,9 @@ Terminal = connect(
             },
             filterChanged: ( new_filter ) => {
                 return dispatch( input_actions.filterChanged( new_filter ) );
+            },
+            setScrollLock: ( new_value ) => {
+                return dispatch( output_actions.setScrollLock( new_value ) );
             }
         };
     }

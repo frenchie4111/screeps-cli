@@ -17,18 +17,15 @@ export default class Output extends Component {
     }
     componentDidUpdate() {
         let elm = this.refs[ REFS_OUTPUT_WRAP ];
-        if( this.state.scroll_lock ) {
+        if( this.props.scroll_lock ) {
             elm.scrollTop = elm.scrollHeight;
         }
     }
 
-    setScrollLock( new_val ) {
-        if( new_val === this.state.scroll_lock ) return;
-        this
-            .setState( ( prev ) => {
-                prev.scroll_lock = new_val;
-                return prev;
-            } );
+    setScrollLock( new_value ) {
+        if( this.props.scroll_lock !== new_value ) {
+            this.props.setScrollLock( new_value );
+        }
     }
 
     onScroll() {
