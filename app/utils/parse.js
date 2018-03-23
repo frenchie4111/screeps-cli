@@ -3,7 +3,15 @@ import _ from 'underscore';
 const OPEN_BRACKETS = [ '[', '{' ];
 const CLOSE_BRACKETS = [ ']', '}' ];
 
-const parseJSONFromLine = ( line ) => {
+const _memoize = {};
+const memoize = func => line => {
+    if( !_memoize.hasOwnProperty( line ) ) {
+        _memoize[ line ] = func( line );
+    }
+    return _memoize[ line ];
+}
+
+const parseJSONFromLine = memoize( ( line ) => {
     let characters = line.split( '' );
 
     let bracket_count = 0;
@@ -37,6 +45,6 @@ const parseJSONFromLine = ( line ) => {
         } );
 
     return json;
-};
+} );
 
 export default { parseJSONFromLine };
