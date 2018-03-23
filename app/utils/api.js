@@ -1,4 +1,6 @@
-export const requestServer = ( path, body, opts={} ) => {
+import fetch from 'node-fetch';
+
+const requestServer = ( path, body, opts={} ) => {
     let headers = {
         'Content-Type': 'application/json'
     };
@@ -8,11 +10,21 @@ export const requestServer = ( path, body, opts={} ) => {
         headers[ 'X-Username' ] = opts.token;
     }
 
-    return fetch( 'https://screeps.com' + path, Object
-        .assign( {
-            headers: headers,
-            body: JSON.stringify( body ),
-            method: 'POST'
-        }, opts ) 
-    );
+    let fetch_opts = Object
+        .assign( 
+            {
+                headers: headers,
+                body: JSON.stringify( body ),
+                method: 'POST'
+            }, 
+            opts 
+        );
+
+    delete fetch_opts.token;
+
+    console.log( fetch_opts );
+
+    return fetch( 'https://screeps.com' + path, fetch_opts );
 };
+
+export default { requestServer };

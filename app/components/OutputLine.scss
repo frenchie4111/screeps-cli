@@ -1,0 +1,20 @@
+.output_line {
+    white-space: nowrap;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.output_line_buttons {
+    width: 40px;
+    min-width: 40px;
+}
+
+.output_line_button {
+    color: blue;
+    
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
