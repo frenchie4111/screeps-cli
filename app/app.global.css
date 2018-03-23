@@ -16,3 +16,17 @@ html, body, #root, #app {
 .light-text {
     color: #75715e;
 }
+
+::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+    background: #222;
+    padding: 2px;
+}
+::-webkit-scrollbar-thumb {
+    background: #666;
+    -webkit-border-radius: 1px;
+}
+::-webkit-scrollbar-corner {
+    background: #222;
+}

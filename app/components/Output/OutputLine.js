@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import ReactJson from 'react-json-view'
 
-import { parseJSONFromLine } from '../utils/parse';
+import { parseJSONFromLine } from '~/utils/parse';
 
 import styles from './OutputLine.scss';
 

@@ -1,16 +1,13 @@
-import { setupWebsocket } from '../utils/websocket';
-import { loadToken } from '../utils/token';
+import { createAction } from '~/libs/actions';
+
+import { setupWebsocket } from '~/utils/websocket';
+import { loadToken } from '~/utils/token';
 
 const action_types = {
     ON_MESSAGE: 'ON_MESSAGES'
 };
 
-const onMessages = ( data ) => {
-    return {
-        type: action_types.ON_MESSAGE,
-        data
-    };
-};
+const onMessages = createAction( action_types.ON_MESSAGE );
 
 const init = ( data ) => {
     return async ( dispatch ) => {
