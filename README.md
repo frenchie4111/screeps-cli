@@ -22,3 +22,11 @@ yarn install
 echo "<YOUR SCREEP API TOKEN>" > .screepscli
 npm start
 ```
+
+## To do
+
+ [] Some basic styling (copy screeps console style?)
+ [] Accept input commands
+ [] Initial prompt (Create's base .screepscli)
+ [] User Coloring
+ [] (Investigate) Html
