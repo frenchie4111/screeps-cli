@@ -20,8 +20,33 @@ const react_json_options = {
 };
 
 export default class Output extends Component {
+    constructor( props ) {
+        super( props );
+
+        this.state = {
+            scroll_lock: true
+        };
+    }
     componentDidUpdate() {
-        this.refs[ REFS_OUTPUT_WRAP ].scrollTop = this.refs[ REFS_OUTPUT_WRAP ].scrollHeight;
+        let elm = this.refs[ REFS_OUTPUT_WRAP ];
+        if( this.state.scroll_lock ) {
+            elm.scrollTop = elm.scrollHeight;
+        }
+    }
+
+    setScrollLock( new_val ) {
+        if( new_val === this.state.scroll_lock ) return;
+        this
+            .setState( ( prev ) => {
+                prev.scroll_lock = new_val;
+                return prev;
+            } );
+    }
+
+    onScroll() {
+        let elm = this.refs[ REFS_OUTPUT_WRAP ];
+        let at_bottom = ( elm.scrollTop === elm.scrollHeight - elm.clientHeight );
+        this.setScrollLock( at_bottom );
     }
 
     render() {
@@ -32,7 +57,8 @@ export default class Output extends Component {
         return (
             <div
                 className={ styles.output_wrap }
-                ref={ REFS_OUTPUT_WRAP }>
+                ref={ REFS_OUTPUT_WRAP }
+                onScroll={ this.onScroll.bind( this ) }>
                 { output.map( ( line, i ) => <OutputLine key={ i } output_line={ line } /> ) }
             </div>
         );

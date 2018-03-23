@@ -11,7 +11,8 @@ const react_json_options = {
     name: false,
     onAdd: false,
     onEdit: false,
-    enableClipboard: false
+    enableClipboard: false,
+    displayDataTypes: false
 };
 
 export default class OutputLine extends Component {

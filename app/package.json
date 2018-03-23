@@ -14,5 +14,7 @@
     "postinstall": "npm run electron-rebuild"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "ws": "^5.1.0"
+  }
 }
