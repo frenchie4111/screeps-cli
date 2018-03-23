@@ -9,7 +9,8 @@ import websocket from '~/actions/websocket';
 import input_actions from '~/actions/input';
 
 import Output from '~/components/Output';
-import Input from '~/components/Input';
+import { FilterInput } from '~/components/Input';
+import { Bar, Spacer } from '~/components/Layout';
 
 import styles from './Terminal.css'
 
@@ -33,11 +34,14 @@ class Terminal extends Component {
         return (
             <div
                 id={ styles.terminal_wrap }>
+                <Bar>
+                    <Spacer />
+                    <FilterInput
+                        filter={ filter }
+                        filterChanged={ filterChanged } />
+                </Bar>
                 <Output
                     output={ output } />
-                <Input
-                    filter={ filter }
-                    filterChanged={ filterChanged } />
             </div>
         );
     }

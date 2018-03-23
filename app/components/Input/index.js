@@ -1,3 +1,3 @@
-import _Input from './Input';
+import _FilterInput from './FilterInput';
 
-export default _Input;
+export const FilterInput = _FilterInput;
