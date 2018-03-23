@@ -3,6 +3,9 @@
 
     display: flex;
     flex-direction: row;
+
+    border-bottom: 1px solid #333;
+    padding: 1px 0;
 }
 
 .output_line_buttons {
@@ -11,10 +14,12 @@
 }
 
 .output_line_button {
-    color: blue;
+    color: #75715e;
     
     &:hover {
         text-decoration: underline;
         cursor: pointer;
+        background-color: #75715e;
+        color: #272822;
     }
 }

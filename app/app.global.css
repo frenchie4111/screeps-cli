@@ -11,3 +11,8 @@ html, body, #root, #app {
     font-size: 12px;
     font-weight: 400;
 }
+
+
+.light-text {
+    color: #75715e;
+}

@@ -12,7 +12,8 @@ const react_json_options = {
     onAdd: false,
     onEdit: false,
     enableClipboard: false,
-    displayDataTypes: false
+    displayDataTypes: false,
+    theme: "monokai"
 };
 
 export default class OutputLine extends Component {
@@ -37,7 +38,10 @@ export default class OutputLine extends Component {
             output_line
         } = this.props;
 
-        let line_json_objects = parseJSONFromLine( output_line.text );
+        let line_json_objects = null;
+        if( this.state.show_json ) {
+            line_json_objects = parseJSONFromLine( output_line.text );
+        }
 
         return (
             <div
@@ -54,15 +58,22 @@ export default class OutputLine extends Component {
                     { output_line.text }
                     {
                         ( ( this.state.show_json ) ? (
-                            line_json_objects
-                                .map( ( json_obj, i ) => {
-                                    return (
-                                        <ReactJson 
-                                            key={ i }
-                                            src={ json_obj }
-                                            { ...react_json_options } />
-                                    );
-                                } )
+                            ( line_json_objects && line_json_objects.length > 0 ) ? (
+                                line_json_objects
+                                    .map( ( json_obj, i ) => {
+                                        return (
+                                            <ReactJson 
+                                                key={ i }
+                                                src={ json_obj }
+                                                { ...react_json_options } />
+                                        );
+                                    } )
+                            ) : (
+                                <div
+                                    className="light-text">
+                                    No JSON
+                                </div>
+                            )
                         ) : null )
                     }
                 </div>

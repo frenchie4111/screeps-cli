@@ -1,7 +1,7 @@
 // @flow
 import { action_types } from '../actions/websocket';
 
-const MAX_HISTORY = 1000;
+const MAX_HISTORY = 100000;
 
 export default function output( state={ messages: [] }, action ) {
     switch( action.type ) {
