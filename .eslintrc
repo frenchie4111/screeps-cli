@@ -1,49 +1,186 @@
 {
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "sourceType": "module",
-    "allowImportExportEverywhere": true
-  },
-  "extends": "airbnb",
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  "rules": {
-    "arrow-parens": ["off"],
-    "compat/compat": "error",
-    "consistent-return": "off",
-    "comma-dangle": "off",
-    "generator-star-spacing": "off",
-    "import/no-unresolved": "error",
-    "import/no-extraneous-dependencies": "off",
-    "jsx-a11y/anchor-is-valid": "off",
-    "no-console": "off",
-    "no-use-before-define": "off",
-    "no-multi-assign": "off",
-    "promise/param-names": "error",
-    "promise/always-return": "error",
-    "promise/catch-or-return": "error",
-    "promise/no-native": "off",
-    "react/sort-comp": ["error", {
-      "order": ["type-annotations", "static-methods", "lifecycle", "everything-else", "render"]
-    }],
-    "react/jsx-no-bind": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
-    "react/prefer-stateless-function": "off"
-  },
-  "plugins": [
-    "flowtype",
-    "import",
-    "promise",
-    "compat",
-    "react"
-  ],
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "webpack.config.eslint.js"
-      }
+    "parser": "babel-eslint",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "env": {
+        "node": true,
+        "jquery": true,
+        "browser": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "impliedStrict": true,
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "plugins": [
+        "react",
+        "flowtype",
+        "import",
+        "compat",
+        "promise"
+    ],
+    "settings": {
+    },
+    "globals": {
+        "__SERVER_URL__": true,
+        "__MARKETING_URL__": true,
+        "__V1_URL__": true,
+        "__STRIPE_KEY__": true
+    },
+    "rules": {
+        "import/no-unresolved": "error",
+        "import/no-extraneous-dependencies": "off",
+
+        "indent": [
+            2,
+            4,
+            {
+                "SwitchCase": 1,
+                "flatTernaryExpressions": true
+            }
+        ],
+        "quotes": [
+            2,
+            "single"
+        ],
+        "key-spacing": [
+            2,
+            {
+                "beforeColon": false,
+                "afterColon": true
+            }
+        ],
+        "keyword-spacing": [
+            "error",
+            {
+                "overrides": {
+                    "if": {
+                        "after": false
+                    },
+                    "for": {
+                        "after": false
+                    },
+                    "while": {
+                        "after": false
+                    },
+                    "switch": {
+                        "after": false
+                    }
+                }
+            }
+        ],
+        "object-curly-spacing": [
+            2,
+            "always"
+        ],
+        "array-bracket-spacing": [
+            2,
+            "always"
+        ],
+        "computed-property-spacing": [
+            2,
+            "always"
+        ],
+        "space-in-parens": [
+            2,
+            "always"
+        ],
+        "no-process-exit": [
+            0
+        ],
+        "comma-dangle": [
+            2,
+            "never"
+        ],
+        "camelcase": [
+            0
+        ],
+        "strict": [
+            2,
+            "never"
+        ],
+        "consistent-this": [
+            2,
+            "_this"
+        ],
+        "no-underscore-dangle": [
+            0
+        ],
+        "no-mixed-requires": [
+            2,
+            true
+        ],
+        "no-class-assign": 0,
+        "curly": [
+            2,
+            "multi-line",
+            "consistent"
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "args": "none",
+                "varsIgnorePattern": "React"
+            }
+        ],
+        "new-cap": [
+            "error",
+            {
+                "capIsNewExceptionPattern": "^.*Reducer"
+            }
+        ],
+        "no-console": [
+            "warn"
+        ],
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 2,
+                "maxEOF": 1
+            }
+        ],
+        "eol-last": [
+            "error",
+            "always"
+        ],
+        "jsx-quotes": 2,
+        "react/jsx-indent": [
+            2,
+            4
+        ],
+        "react/jsx-indent-props": [
+            2,
+            4
+        ],
+        "react/jsx-closing-bracket-location": [
+            2,
+            "after-props"
+        ],
+        "react/jsx-no-undef": 2,
+        "react/jsx-sort-props": 0,
+        "react/jsx-sort-prop-types": 0,
+        "react/jsx-uses-react": 2,
+        "react/jsx-uses-vars": 2,
+        "react/no-did-mount-set-state": 2,
+        "react/no-did-update-set-state": 2,
+        "react/no-multi-comp": 2,
+        "react/no-unknown-property": 1,
+        "react/prop-types": 0,
+        "react/react-in-jsx-scope": 2,
+        "react/self-closing-comp": 2,
+        "react/wrap-multilines": 0,
+        "react/display-name": 0,
+        "react/no-find-dom-node": 0,
+        "semi": [
+            "error",
+            "always"
+        ]
     }
-  }
 }
