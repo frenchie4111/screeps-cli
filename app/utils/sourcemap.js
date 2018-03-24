@@ -1,13 +1,13 @@
-const path = require( 'path' ),
-    fs = require( 'fs' ),
-    _ = require( 'underscore' );
-
-let stacktrace = require( 'stack-trace' );
+import path from 'path';
+import fs from 'fs';
+import _ from 'underscore';
+import stacktrace from 'stack-trace';
 
 // HACK: Undefine fetch so source-map doesn't think we are in browser mode
 let old_fetch = global.fetch;
 global.fetch = null;
 const sourceMap = require('source-map');
+import sourceMap from 'source-map';
 global.fetch = old_fetch;
 
 let consumer = null;
