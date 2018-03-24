@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import _ from 'underscore';
 
 import Routes from '~/routes';
@@ -45,6 +46,9 @@ class Terminal extends Component {
                     <FilterInput
                         filter={ filter }
                         filterChanged={ filterChanged } />
+                    <Link to="/config">
+                        Config
+                    </Link>
                 </Bar>
                 <Output
                     output={ output }

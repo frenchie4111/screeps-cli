@@ -6,4 +6,15 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    
+    padding: 0px 8px;
+    color: #f8f8f2;
+
+    a, div, input {
+        margin: 0px 4px;
+    }
+
+    a:link, a:visited {
+        color: inherit;
+    }
 }

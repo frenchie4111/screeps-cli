@@ -12,6 +12,9 @@ html, body, #root, #app {
     font-weight: 400;
 }
 
+div {
+    box-sizing: border-box;
+}
 
 .light-text {
     color: #75715e;

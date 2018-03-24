@@ -188,6 +188,7 @@
   },
   "dependencies": {
     "devtron": "^1.4.0",
+    "electron-config": "^1.0.0",
     "electron-debug": "^1.5.0",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
@@ -201,6 +202,7 @@
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.7.2",
+    "redux-form": "^7.3.0",
     "redux-thunk": "^2.2.0",
     "source-map-support": "^0.5.3",
     "stack-trace": "^0.0.10",
