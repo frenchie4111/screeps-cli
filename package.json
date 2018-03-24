@@ -190,7 +190,6 @@
     "devtron": "^1.4.0",
     "electron-debug": "^1.5.0",
     "font-awesome": "^4.7.0",
-    "hack-font": "^3.3.0",
     "history": "^4.7.2",
     "node-fetch": "^2.1.1",
     "react": "^16.2.0",
@@ -204,6 +203,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "source-map-support": "^0.5.3",
+    "stack-trace": "^0.0.10",
     "underscore": "^1.8.3"
   },
   "devEngines": {

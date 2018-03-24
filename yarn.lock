@@ -4486,10 +4486,6 @@ gzip-size@^3.0.0:
   dependencies:
     duplexer "^0.1.1"
 
-hack-font@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/hack-font/-/hack-font-3.3.0.tgz#be36ffe9cfc318c555aa04c8c26a48d0e53230d5"
-
 handle-thing@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
@@ -9090,6 +9086,10 @@ ssri@^5.0.0:
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-5.1.0.tgz#2cbf1df36b74d0fc91fcf89640a4b3e1d10b1899"
   dependencies:
     safe-buffer "^5.1.0"
+
+stack-trace@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/stack-trace/-/stack-trace-0.0.10.tgz#547c70b347e8d32b4e108ea1a2a159e5fdde19c0"
 
 stack-utils@^1.0.1:
   version "1.0.1"
