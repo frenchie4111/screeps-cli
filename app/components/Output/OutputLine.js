@@ -4,6 +4,8 @@ import ReactJson from 'react-json-view'
 
 import { parseJSONFromLine } from '~/utils/parse';
 
+import ColoredText from './ColoredText';
+
 import styles from './OutputLine.scss';
 
 const react_json_options = {
@@ -55,7 +57,8 @@ export default class OutputLine extends Component {
                     </div>
                 </div>
                 <div>
-                    { output_line.text }
+                    <ColoredText
+                        text={ output_line.text } />
                     {
                         ( ( this.state.show_json ) ? (
                             ( line_json_objects && line_json_objects.length > 0 ) ? (

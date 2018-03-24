@@ -2,7 +2,7 @@
 import { action_types as websocket_action_types } from '../actions/websocket';
 import { action_types as output_action_types } from '../actions/output';
 
-const MAX_HISTORY = 100000;
+const MAX_HISTORY = 1000;
 
 export default function output( state={ messages: [], scroll_lock: true }, action ) {
     switch( action.type ) {
@@ -11,7 +11,7 @@ export default function output( state={ messages: [], scroll_lock: true }, actio
             state.messages = state.messages.concat( action.data );
 
             if( state.messages.length > MAX_HISTORY ) {
-                state.messages = state.messages.slice( state.messages.length - MAX_HISTORY, MAX_HISTORY );
+                state.messages = state.messages.slice( state.messages.length - MAX_HISTORY, state.messages.length );
             }
 
             return state;
