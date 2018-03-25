@@ -6,8 +6,7 @@ import stacktrace from 'stack-trace';
 // HACK: Undefine fetch so source-map doesn't think we are in browser mode
 let old_fetch = global.fetch;
 global.fetch = null;
-const sourceMap = require('source-map');
-import sourceMap from 'source-map';
+const sourceMap = require( 'source-map' );
 global.fetch = old_fetch;
 
 let consumer = null;
@@ -26,6 +25,7 @@ let init = ( file_path, opts={ rel: 'webpack:///' } ) => {
         } )
         .catch( ( err ) => console.error( err ) );
 };
+   
 
 let convertSourceMap = ( unconverted_error_stack ) => {
     if( !consumer ) {
@@ -37,6 +37,13 @@ let convertSourceMap = ( unconverted_error_stack ) => {
     let converted_lines = _
         .chain( stacktrace_lines )
         .map( ( original_stack_trace_line ) => {
+            console.log( original_stack_trace_line );
+            if( original_stack_trace_line.lineNumber === null || original_stack_trace_line.lineNumber < 0 ) {
+                return {
+                    original: original_stack_trace_line
+                };
+            }
+
             let converted_line = consumer
                 .originalPositionFor( { 
                     line: original_stack_trace_line.lineNumber, 
